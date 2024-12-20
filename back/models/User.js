@@ -8,9 +8,21 @@ const userSchema = new mongoose.Schema({
   },
   phone: {
     type: String,
+    required: true,
   },
 });
 
-const User = mongoose.model('User', userSchema); // Modelo baseado no schema
+const User = mongoose.model('User', userSchema); 
 
-module.exports = User;
+async function findUserByPhone(phone) {
+  try {
+    const userFind = await User.findOne({ phone: phone });
+    return userFind;
+  } catch (error) {
+    console.error('Erro ao buscar usuário:', error);
+    throw error;
+  }
+}
+
+
+module.exports = { User, findUserByPhone };

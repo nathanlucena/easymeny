@@ -1,0 +1,13 @@
+# Ignorar node_modules em ambas as pastas
+back/node_modules/
+back/.wwebjs_cache/
+back/.wwebjs_auth/
+front/node_modules/
+
+# Ignorar pastas de build (se aplicável)
+back/public/
+front/dist/
+
+# Ignorar outros arquivos temporários
+*.log
+.DS_Store
